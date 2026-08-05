@@ -52,7 +52,7 @@ class ResolutionAgent:
             )
         
         if not llm_confidence:
-            llm_confidence = 0.95 if primary_issue in ["canceled_order_paid", "unavailable_order_paid", "late_delivery_seller", "late_delivery_logistics", "valid_split_payment"] else 0.90
+            llm_confidence = 0.95
 
         return {
             "summary": llm_summary,

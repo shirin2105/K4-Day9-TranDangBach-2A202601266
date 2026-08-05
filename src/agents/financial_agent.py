@@ -7,13 +7,13 @@ class FinancialAgent:
         if not items_data:
             return {
                 "currency": "BRL",
-                "item_total_brl": None,
-                "freight_total_brl": None,
+                "item_total_brl": 0.0,
+                "freight_total_brl": 0.0,
                 "expected_total_brl": None,
                 "payment_total_brl": round(sum(p.get("payment_value", 0.0) for p in payments_data), 2) if payments_data else 0.0,
                 "difference_brl": None,
                 "reconciled": None,
-                "payment_types": list(set(p.get("payment_type") for p in payments_data if p.get("payment_type")))
+                "payment_types": list(dict.fromkeys(p.get("payment_type") for p in payments_data if p.get("payment_type")))
             }
 
         item_total = sum(i.get("price", 0.0) for i in items_data)
