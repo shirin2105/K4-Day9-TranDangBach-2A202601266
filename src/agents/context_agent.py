@@ -26,7 +26,7 @@ class ContextAgent:
                 product_ids.append(pid)
                 prod = self.db.get_product(pid)
                 if prod:
-                    cat = prod.get("category_english") or prod.get("product_category_name")
+                    cat = prod.get("product_category_name")
                     if cat and cat not in category_names:
                         category_names.append(cat)
 

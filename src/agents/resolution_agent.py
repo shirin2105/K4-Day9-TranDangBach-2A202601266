@@ -49,7 +49,10 @@ class ResolutionAgent:
                 f"The primary issue is determined as {primary_issue} with root cause {root_cause}, requiring a {refund_type} of {refund_amount} BRL."
             )
         
-        llm_confidence = 0.95
+        if items_data is not None and not items_data:
+            llm_confidence = 0.90
+        else:
+            llm_confidence = 0.95
 
         return {
             "summary": llm_summary,
