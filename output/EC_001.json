@@ -6,7 +6,7 @@
       "multi_item_order",
       "repeat_customer"
     ],
-    "case_status": "resolved",
+    "case_status": "no_action",
     "confidence": 0.9
   },
   "affected_entities": {
@@ -90,11 +90,9 @@
   ],
   "financial_resolution": {
     "currency": "BRL",
-    "refund_type": "none",
-    "refund_amount_brl": 0.0
+    "recommended_refund_brl": 0.0
   },
-  "recommended_actions": [
+  "resolution_actions": [
     "reject_late_refund"
-  ],
-  "investigation_summary": "Case EC_001 for order 9b75cdaf2d85857ef023980e15d01546 analyzed under EC_POLICY_V2. Primary issue identified as unsupported_late_claim with root cause DELIVERY_WITHIN_ESTIMATE. Refund type: none (0.0 BRL)."
+  ]
 }

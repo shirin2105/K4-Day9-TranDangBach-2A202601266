@@ -78,12 +78,10 @@
   ],
   "financial_resolution": {
     "currency": "BRL",
-    "refund_type": "full_refund",
-    "refund_amount_brl": 290.16
+    "recommended_refund_brl": 290.16
   },
-  "recommended_actions": [
+  "resolution_actions": [
     "issue_full_refund",
     "verify_refund_completion"
-  ],
-  "investigation_summary": "Case EC_004 for order 5d9c5817e278892b7498d90bfa28ade8 analyzed under EC_POLICY_V2. Primary issue identified as canceled_order_paid with root cause ORDER_CANCELED_AFTER_PAYMENT. Refund type: full_refund (290.16 BRL)."
+  ]
 }

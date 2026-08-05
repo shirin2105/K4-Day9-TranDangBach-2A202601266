@@ -69,12 +69,10 @@
   ],
   "financial_resolution": {
     "currency": "BRL",
-    "refund_type": "full_refund",
-    "refund_amount_brl": 85.14
+    "recommended_refund_brl": 85.14
   },
-  "recommended_actions": [
+  "resolution_actions": [
     "issue_full_refund",
     "verify_refund_completion"
-  ],
-  "investigation_summary": "Case EC_034 for order b210c676cae65f95f7e08a49d195e1a1 analyzed under EC_POLICY_V2. Primary issue identified as unavailable_order_paid with root cause ORDER_UNAVAILABLE_AFTER_PAYMENT. Refund type: full_refund (85.14 BRL)."
+  ]
 }

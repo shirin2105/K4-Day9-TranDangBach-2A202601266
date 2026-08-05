@@ -98,14 +98,12 @@
   ],
   "financial_resolution": {
     "currency": "BRL",
-    "refund_type": "freight_refund",
-    "refund_amount_brl": 25.52
+    "recommended_refund_brl": 25.52
   },
-  "recommended_actions": [
+  "resolution_actions": [
     "refund_freight",
     "review_seller_handoff",
     "verify_refund_completion",
     "verify_payment_allocation"
-  ],
-  "investigation_summary": "Case EC_046 for order 0e3ec3c17b64c6cc7bc01bba21e7afdf analyzed under EC_POLICY_V2. Primary issue identified as late_delivery_seller with root cause SELLER_HANDOFF_AFTER_LIMIT. Refund type: freight_refund (25.52 BRL)."
+  ]
 }

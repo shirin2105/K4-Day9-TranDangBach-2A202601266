@@ -7,7 +7,7 @@
       "multi_seller_order",
       "split_payment"
     ],
-    "case_status": "resolved",
+    "case_status": "no_action",
     "confidence": 0.95
   },
   "affected_entities": {
@@ -92,12 +92,10 @@
   ],
   "financial_resolution": {
     "currency": "BRL",
-    "refund_type": "none",
-    "refund_amount_brl": 0.0
+    "recommended_refund_brl": 0.0
   },
-  "recommended_actions": [
+  "resolution_actions": [
     "explain_valid_split_payment",
     "coordinate_multi_seller_case"
-  ],
-  "investigation_summary": "Case EC_010 for order 919baca007d9525b6668c18f79a33197 analyzed under EC_POLICY_V2. Primary issue identified as valid_split_payment with root cause MULTIPLE_PAYMENTS_RECONCILED. Refund type: none (0.0 BRL)."
+  ]
 }
