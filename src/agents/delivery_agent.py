@@ -5,11 +5,16 @@ class DeliveryAgent:
     """Agent 3A: Investigates delivery timestamps and seller handoff variances."""
 
     def investigate(self, order_data: dict, items_data: list) -> dict:
+        def format_ts(ts):
+            if ts is None or pd.isna(ts) or str(ts).strip().lower() in ["nan", "nat", "none", ""]:
+                return None
+            return str(ts)
+
         if not order_data or not items_data:
             return {
-                "delivered_at": order_data.get("order_delivered_customer_date") if order_data else None,
-                "estimated_delivery_at": order_data.get("order_estimated_delivery_date") if order_data else None,
-                "carrier_handoff_at": order_data.get("order_delivered_carrier_date") if order_data else None,
+                "delivered_at": format_ts(order_data.get("order_delivered_customer_date")) if order_data else None,
+                "estimated_delivery_at": format_ts(order_data.get("order_estimated_delivery_date")) if order_data else None,
+                "carrier_handoff_at": format_ts(order_data.get("order_delivered_carrier_date")) if order_data else None,
                 "delivery_variance_hours": None,
                 "seller_handoff_analysis": [],
                 "late_handoff_seller_ids": []
@@ -20,7 +25,7 @@ class DeliveryAgent:
         carrier_handoff_at = order_data.get("order_delivered_carrier_date")
 
         def format_ts(ts):
-            if pd.isna(ts) or not ts:
+            if ts is None or pd.isna(ts) or str(ts).strip().lower() in ["nan", "nat", "none", ""]:
                 return None
             return str(ts)
 
