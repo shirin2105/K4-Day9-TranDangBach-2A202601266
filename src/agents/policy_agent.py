@@ -89,14 +89,7 @@ class PolicyAgent:
         elif primary_issue == "late_delivery_logistics":
             actions.append("review_carrier_delay")
 
-        refund_cases = {
-            "canceled_order_paid",
-            "unavailable_order_paid",
-            "late_delivery_seller",
-            "late_delivery_logistics",
-        }
-
-        if primary_issue in refund_cases:
+        if primary_issue in ["canceled_order_paid", "unavailable_order_paid"]:
             actions.append("verify_refund_completion")
 
         if len(all_sellers) >= 2:
