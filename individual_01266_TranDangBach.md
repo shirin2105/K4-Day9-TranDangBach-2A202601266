@@ -55,8 +55,8 @@ Bài toán yêu cầu giải quyết 50 khiếu nại thương mại điện t�
 | Thành phần | Mô tả |
 | ---------- | ------ |
 | Input | `input/EC_xxx.json` chứa `claimed_order_id`, `message` |
-| Output | `output/EC_xxx.json` chứa đầy đủ 12 trường thông tin chuẩn Schema |
-| Module phụ thuộc | `pandas`, `python-dotenv`, `huggingface-cli` |
+| Output | `output/EC_xxx.json` chứa đầy đủ 11 trường thông tin chuẩn Schema |
+| Module phụ thuộc | `pandas`, `python-dotenv`, `requests` |
 
 ### Cách xác minh
 
