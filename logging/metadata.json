@@ -1,0 +1,14 @@
+{
+  "model": "Qwen/Qwen3.5-9B",
+  "tools": [
+    "Data Retrieval Tool (Pandas)",
+    "Delivery Agent",
+    "Financial Agent",
+    "Context Agent",
+    "Policy Adjudicator",
+    "Critic Agent",
+    "Resolution Agent"
+  ],
+  "policy_version": "EC_POLICY_V2",
+  "total_cases": 50
+}
