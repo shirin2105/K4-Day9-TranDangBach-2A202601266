@@ -57,7 +57,7 @@ class SupervisorAgent:
             policy_res = self.policy_agent.adjudicate(order_data, items_data, payments_data, delivery_res, financial_res, context_res)
 
         # Step 6: Resolution Agent
-        resolution_res = self.resolution_agent.synthesize(case_id, claimed_order_id, triage_res, delivery_res, financial_res, context_res, policy_res)
+        resolution_res = self.resolution_agent.synthesize(case_id, claimed_order_id, triage_res, delivery_res, financial_res, context_res, policy_res, items_data)
 
         # Format arrays and limits strictly according to README.md lines 135-218
         item_ids = [f"{claimed_order_id}:{item.get('order_item_id')}" for item in items_data][:5]

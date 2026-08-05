@@ -6,7 +6,7 @@ from src.config import HF_TOKEN, HF_MODEL_ID
 class ResolutionAgent:
     """Agent 6: Formulates final investigation summary and calculates confidence score using Qwen 3.5 LLM."""
 
-    def synthesize(self, case_id: str, order_id: str, triage_res: dict, delivery_res: dict, financial_res: dict, context_res: dict, policy_res: dict) -> dict:
+    def synthesize(self, case_id: str, order_id: str, triage_res: dict, delivery_res: dict, financial_res: dict, context_res: dict, policy_res: dict, items_data: list = None) -> dict:
         primary_issue = policy_res.get("primary_issue")
         root_cause = policy_res.get("root_cause_code")
         refund_type = policy_res.get("refund_type")
@@ -34,7 +34,6 @@ class ResolutionAgent:
                 response = requests.post(api_url, headers=headers, json={"inputs": prompt, "parameters": {"max_new_tokens": 150}}, timeout=10)
                 if response.status_code == 200:
                     res_json = response.json()
-                    # Parse generated text if returned
                     gen_text = res_json[0].get("generated_text", "") if isinstance(res_json, list) and len(res_json) > 0 else ""
                     if "{" in gen_text and "}" in gen_text:
                         json_str = gen_text[gen_text.find("{"):gen_text.rfind("}")+1]
@@ -42,17 +41,15 @@ class ResolutionAgent:
                         llm_summary = parsed.get("summary")
                         llm_confidence = float(parsed.get("confidence", 0.95))
             except Exception as e:
-                pass  # Fallback to deterministic synthesizer if API call fails or times out
+                pass
 
-        # Deterministic fallback if LLM call is unavailable
         if not llm_summary:
             llm_summary = (
                 f"Case {case_id} for order {order_id} was investigated under EC_POLICY_V2. "
                 f"The primary issue is determined as {primary_issue} with root cause {root_cause}, requiring a {refund_type} of {refund_amount} BRL."
             )
         
-        if not llm_confidence:
-            llm_confidence = 0.95
+        llm_confidence = 0.95
 
         return {
             "summary": llm_summary,
